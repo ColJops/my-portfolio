@@ -1,3 +1,4 @@
+import dungeonImg from "../assets/projects/dungeoncrawl.png";
 export const projects = [
   {
     id: 1,
@@ -6,6 +7,7 @@ export const projects = [
     link: "https://github.com/ColJops/DemoEngine",
     tech: ["Java", "JavaFX", "AI"],
     featured: true,
+    image: dungeonImg,
     github: {
       owner: "ColJops",
       repo: "DemoEngine",
@@ -15,7 +17,7 @@ export const projects = [
     id: 2,
     name: "Portfolio",
     desc: "Nowoczesna strona React + Tailwind",
-    link: "https://github.com/ColJops/https---github.com-ColJops-my-portfolio",
+    link: "https://github.com/ColJops/my-portfolio",
     tech: ["React", "Tailwind"],
     github: {
       owner: "ColJops",
