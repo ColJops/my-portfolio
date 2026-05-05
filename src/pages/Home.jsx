@@ -64,9 +64,9 @@ export default function Home() {
             />
           </svg>
         </motion.div>
-
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent my-16"></div>
         {/* 🔥 HERO */}
-        <motion.h1
+               <motion.h1
           variants={item}
           className="text-5xl md:text-7xl font-bold leading-tight"
         >
@@ -80,7 +80,9 @@ export default function Home() {
           variants={item}
           className="mt-6 text-zinc-400 max-w-xl text-lg"
         >
-          React • Java • Game Dev  
+          <span className="text-cyan-400">React</span> • 
+        <span className="text-purple-400"> Java</span> • 
+        <span className="text-pink-400"> Game Dev </span>  
           Buduję projekty, które działają i wyglądają.
         </motion.p>
 
@@ -97,10 +99,13 @@ export default function Home() {
             </span>
           </button>
 
-          <button className="px-8 py-3 border border-zinc-700 rounded-lg hover:border-cyan-400 transition">
+          <button
+            onClick={() => navigate("/o-mnie#kontakt")}
+            className="px-8 py-3 border border-zinc-700 rounded-lg hover:border-cyan-400 transition"
+          >
             Kontakt
-          </button>
-
+        </button>
+        
         </motion.div>
       </motion.section>
       <TechStack />
@@ -133,7 +138,7 @@ export default function Home() {
           </button>
         </div>
       </motion.section>
-    
+
     </>
   );
 }

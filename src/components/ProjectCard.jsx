@@ -13,6 +13,11 @@ export default function ProjectCard({ project }) {
     >
       <h3 className="text-xl font-semibold text-zinc-100 group-hover:text-cyan-400 transition">
         {project.name}
+        {project.category === "course" && (
+      <span className="inline-block mt-2 text-xs px-2 py-1 bg-yellow-500/10 text-yellow-400 rounded">
+        projekt kursowy
+      </span>
+      )}
       </h3>
 
       <p className="text-zinc-400 mt-2">
@@ -27,10 +32,11 @@ export default function ProjectCard({ project }) {
           >
             {t}
           </span>
+          
         ))}
       </div>
 
-      {/* 🔥 WAŻNE: stopPropagation */}
+      {/* WAŻNE: stopPropagation */}
       <a
         href={project.link}
         target="_blank"

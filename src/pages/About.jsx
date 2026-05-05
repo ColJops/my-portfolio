@@ -139,6 +139,7 @@ export default function About() {
       </motion.div>
 
       {/* KONTAKT */}
+      
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -149,7 +150,7 @@ export default function About() {
           Kontakt
         </h2>
 
-        <div className="space-y-2 text-zinc-400">
+        <div  id="kontakt" className="space-y-2 text-zinc-400">
           <p>📧 dkupracz@dkupracz.cba.pl</p>
           <p>
             💻 <a href="https://github.com/ColJops" target="_blank" className="text-cyan-400">GitHub</a>

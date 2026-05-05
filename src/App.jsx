@@ -8,14 +8,14 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white relative overflow-hidden">
 
-      {/* 🔥 GRID */}
+      {/* GRID */}
       <div className="fixed inset-0 -z-20 opacity-10 
         bg-[radial-gradient(circle,_#ffffff_1px,_transparent_1px)] 
         [background-size:20px_20px]"></div>
 
-      {/* 🔥 GLOW */}
+      {/*  GLOW */}
       <div className="fixed inset-0 -z-10">
         <div className="absolute top-[-150px] left-[-150px] w-[400px] h-[400px] bg-cyan-500 opacity-20 blur-3xl rounded-full animate-pulse"></div>
         
