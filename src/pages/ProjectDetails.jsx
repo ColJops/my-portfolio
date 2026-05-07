@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { projects } from "../data/projects";
 import CommitList from "../components/CommitList";
-import { useEffect } from "react";
 
 export default function ProjectDetails() {
   const { id } = useParams();
   const project = projects.find(p => p.id === Number(id));
   const [lastCommitDate, setLastCommitDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [badge, setBadge] = useState(null);
 
   useEffect(() => {
     const handleEsc = (e) => {
@@ -18,6 +18,33 @@ export default function ProjectDetails() {
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
+
+  useEffect(() => {
+    if (!lastCommitDate) {
+      setBadge(null); // eslint-disable-line react-hooks/set-state-in-effect
+      return;
+    }
+    const days = (Date.now() - new Date(lastCommitDate)) / (1000 * 60 * 60 * 24);
+    let label = "Aktywny projekt";
+    let color = "green";
+   
+    if (days > 30) {
+      label = "Nieaktywny projekt";
+      color = "red";
+    } else if (days > 7) {
+      label = "Umiarkowana aktywność";
+      color = "yellow";
+    }
+
+    const styles = {
+      green: "bg-green-500/10 text-green-400 border-green-500/20",
+      yellow: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+      red: "bg-red-500/10 text-red-400 border-red-500/20",
+    };
+
+    setBadge({ label, color, styles: styles[color] });
+  }, [lastCommitDate]);
+
   if (!project) return <div>Nie znaleziono projektu</div>;
 
   return (
@@ -42,33 +69,11 @@ export default function ProjectDetails() {
   </a>
 
   {/* BADGE */}
-  {lastCommitDate && (() => {
-    const days =
-      (Date.now() - new Date(lastCommitDate)) / (1000 * 60 * 60 * 24);
-
-    let label = "Aktywny projekt";
-    let color = "green";
-   
-    if (days > 30) {
-      label = "Nieaktywny projekt";
-      color = "red";
-    } else if (days > 7) {
-      label = "Umiarkowana aktywność";
-      color = "yellow";
-    }
-
-    const styles = {
-      green: "bg-green-500/10 text-green-400 border-green-500/20",
-      yellow: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-      red: "bg-red-500/10 text-red-400 border-red-500/20",
-    };
-
-    return (
-      <div className={`mt-4 inline-block px-3 py-1 text-sm rounded-full border ${styles[color]}`}>
-        ● {label}
-      </div>
-    );
-  })()}
+  {badge && (
+    <div className={`mt-4 inline-block px-3 py-1 text-sm rounded-full border ${badge.styles}`}>
+      ● {badge.label}
+    </div>
+  )}
 
   {/* 🔥 PREVIEW (OSOBNO!) */}
   {project.image && (

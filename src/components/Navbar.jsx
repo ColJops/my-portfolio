@@ -5,7 +5,7 @@ import { useLang } from "../context/LanguageContext";
 
 export default function Navbar() {
 
-  const { lang, setLang, t } = useLang();
+  const { lang, setLang } = useLang();
   return (
     <nav className="flex justify-between items-center px-8 py-5 bg-zinc-900/80 backdrop-blur border-b border-zinc-800 sticky top-0 z-50">
       <h1 className="text-2xl font-bold tracking-wide">

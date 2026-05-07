@@ -5,11 +5,10 @@ import Reveal from "../components/Reveal";
 import cyb4 from "../assets/gfx/cyb4.jpg";
 import prog6 from "../assets/gfx/prog6.jpg";
 import prog2 from "../assets/gfx/prog2.jpg";
-import { useLang } from "../context/LanguageContext";
+import { t } from "../utils/translations";
 
 export default function Home() {
   const navigate = useNavigate();
-  const { t } = useLang();
   return (
     <>
       {/* 🔥 HERO */}
