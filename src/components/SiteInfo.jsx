@@ -1,8 +1,8 @@
-import { Clock3, Eye } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function SiteInfo() {
   const [views, setViews] = useState(null);
+  const [error, setError] = useState(false);
 
   const lastUpdate =
     import.meta.env.VITE_LAST_UPDATE ||
@@ -12,14 +12,25 @@ export default function SiteInfo() {
     async function fetchViews() {
       try {
         const res = await fetch(
-          "https://api.countapi.xyz/hit/dkupracz-portfolio/homepage"
+          "https://api.counterapi.dev/v1/dkupracz-portfolio/homepage/up"
         );
+
+        if (!res.ok) {
+          throw new Error("Counter API error");
+        }
 
         const data = await res.json();
 
-        setViews(data.value);
+        const value = data.count ?? data.value;
+
+        if (typeof value !== "number") {
+          throw new Error("Invalid counter response");
+        }
+
+        setViews(value);
       } catch (err) {
-        console.error(err);
+        console.error("Visitor counter error:", err);
+        setError(true);
       }
     }
 
@@ -27,19 +38,17 @@ export default function SiteInfo() {
   }, []);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-zinc-400 mt-10">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-zinc-400 mt-8">
       <div className="flex items-center gap-2">
-        <Clock3 size={18} />
-        <span>
-          Ostatnia aktualizacja: {lastUpdate}
-        </span>
+        <span>◷</span>
+        <span>Ostatnia aktualizacja: {lastUpdate}</span>
       </div>
 
       <div className="flex items-center gap-2">
-        <Eye size={18} />
+        <span>⊙</span>
         <span>
           Odwiedziny:{" "}
-          {views !== null ? views : "..."}
+          {error ? "niedostępne" : views !== null ? views : "..."}
         </span>
       </div>
     </div>
