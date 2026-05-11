@@ -127,7 +127,7 @@ export const translations = {
       legends: {
       name: "Legends",
       desc:
-    "Serwis full-stack do zbierania legend, mitów i lokalnych historii z regionu. Aplikacja full-stack stworzona w Java 24+, Spring Boot, React.js oraz MySQL. Projekt umożliwia dodawanie, przeglądanie i zarządzanie regionalnymi legendami, mitami i plotkami. Backend udostępnia REST API, frontend zapewnia nowoczesny interfejs użytkownika, a baza danych MySQL przechowuje treści aplikacji.",
+    "Serwis full-stack do zbierania legend, mitów i lokalnych historii z regionu.",
 },
     },
   },
@@ -259,7 +259,7 @@ export const translations = {
       legends: {
         name: "Legends",
         desc:
-          "A full-stack service for collecting regional legends, myths and local stories. A full-stack application built with Java 24+, Spring Boot, React.js and MySQL. The project allows users to add, browse and manage regional legends, myths and rumors. The backend provides a REST API, the frontend delivers a modern user experience, and MySQL stores the application data.",
+          "A full-stack service for collecting regional legends, myths and local stories.",
       },
     },
   },

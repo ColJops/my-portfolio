@@ -3,6 +3,7 @@ import GithubArchive from "../components/GithubArchive";
 import { projects } from "../data/projects";
 import cyb3 from "../assets/gfx/cyb3.jpg";
 import { useTranslations } from "../utils/translations";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   const t = useTranslations();
@@ -25,8 +26,20 @@ export default function Projects() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {mainProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {mainProjects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 40, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1  }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.12,
+              ease: "easeOut",
+            }}
+          >
+            <ProjectCard project={project} />
+          </motion.div>
         ))}
       </div>
 
@@ -37,8 +50,20 @@ export default function Projects() {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-80">
-        {courseProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {courseProjects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 40, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.08,
+              ease: "easeOut",
+            }}
+          >
+            <ProjectCard project={project} />
+          </motion.div>
         ))}
       </div>
 
