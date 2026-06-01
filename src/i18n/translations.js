@@ -5,6 +5,7 @@ export const translations = {
       about: "O mnie",
       projects: "Projekty",
     },
+
     home: {
       title: "Tworzę nowoczesne aplikacje",
       techLine: {
@@ -16,9 +17,10 @@ export const translations = {
       contactBtn: "Kontakt",
       currentProject: "Aktualny projekt",
       currentProjectDescription:
-        "Gra RPG tworzona w Javie z systemem zapisu, AI przeciwników i eksploracją dungeonów.",
+        "Full-stackowa aplikacja tworzona w oparciu o Java, Spring Boot, React oraz MySQL. Projekt służy do gromadzenia legend, mitów i lokalnych opowieści z podziałem na regiony.",
       detailsBtn: "Zobacz szczegóły",
     },
+
     about: {
       title: "O mnie",
       intro1:
@@ -53,6 +55,7 @@ export const translations = {
       programmingAlt: "programowanie",
       cybersecurityAlt: "cyberbezpieczeństwo",
     },
+
     techStack: {
       title: "Tech Stack",
       categories: {
@@ -62,17 +65,21 @@ export const translations = {
         tools: "Narzędzia",
       },
     },
+
     projectsPage: {
       title: "Moje projekty",
       courseTitle: "Projekty z kursu Full Stack Web Developer",
       imageAlt: "cyber",
     },
+
     projectCard: {
       courseBadge: "projekt kursowy",
       repository: "Repozytorium",
     },
+
     projectDetails: {
       notFound: "Nie znaleziono projektu",
+      backToProjects: "Powrót do projektów",
       repository: "Zobacz repo →",
       preview: "Kliknij, aby powiększyć",
       latestCommits: "Ostatnie commity",
@@ -80,15 +87,18 @@ export const translations = {
       inactive: "Nieaktywny projekt",
       moderate: "Umiarkowana aktywność",
     },
+
     footer: {
       builtWith: "Built with",
     },
+
     githubArchive: {
       title: "Pozostałe repozytoria GitHub",
       subtitle:
         "Mniejsze projekty, eksperymenty, aplikacje treningowe i archiwalne repozytoria.",
       openRepository: "Otwórz repozytorium",
     },
+
     commits: {
       loadError: "Błąd podczas ładowania commitów.",
       rateLimit: "Limit zapytań GitHub API został przekroczony.",
@@ -97,12 +107,14 @@ export const translations = {
       yesterday: "wczoraj",
       daysAgo: "dni temu",
     },
+
     terminal: {
-    whoami: "Junior Java Developer",
-    status: "Aktywnie rozwijam projekty full-stack i gry w Javie.",
-    focus: "Backend, React, REST API, bazy danych i cyberbezpieczeństwo.",
-  },
-        projects: {
+      whoami: "Junior Java Developer",
+      status: "Aktywnie rozwijam projekty full-stack i gry w Javie.",
+      focus: "Backend, React, REST API, bazy danych i cyberbezpieczeństwo.",
+    },
+
+    projects: {
       dungeonCrawl: {
         name: "Dungeon Crawl",
         desc: "Gra RPG w Javie z AI, zapisem i systemem walki",
@@ -132,21 +144,19 @@ export const translations = {
         desc: "Aplikacja dla miłośników psów",
       },
       legends: {
-      name: "Legends",
-      desc:
-    "Serwis full-stack do zbierania legend, mitów i lokalnych historii z regionu.",
+        name: "Legends",
+        desc: "Serwis full-stack do zbierania legend, mitów i lokalnych historii z regionu.",
+      },
     },
   },
-   projectDetails: {
-    backToProjects: "Powrót do projektów",
-    },
-},
+
   en: {
     nav: {
       home: "Home",
       about: "About",
       projects: "Projects",
     },
+
     home: {
       title: "I build modern applications",
       techLine: {
@@ -158,9 +168,10 @@ export const translations = {
       contactBtn: "Contact",
       currentProject: "Current project",
       currentProjectDescription:
-        "An RPG game built in Java with a save system, enemy AI, and dungeon exploration.",
+        "A full-stack application built with Java, Spring Boot, React and MySQL. The project is designed to collect legends, myths and local stories organized by region.",
       detailsBtn: "View details",
     },
+
     about: {
       title: "About me",
       intro1:
@@ -195,6 +206,7 @@ export const translations = {
       programmingAlt: "programming",
       cybersecurityAlt: "cybersecurity",
     },
+
     techStack: {
       title: "Tech Stack",
       categories: {
@@ -204,17 +216,21 @@ export const translations = {
         tools: "Tools",
       },
     },
+
     projectsPage: {
       title: "My projects",
       courseTitle: "Full Stack Web Developer course projects",
       imageAlt: "cyber",
     },
+
     projectCard: {
       courseBadge: "course project",
       repository: "Repository",
     },
+
     projectDetails: {
       notFound: "Project not found",
+      backToProjects: "Back to projects",
       repository: "View repository →",
       preview: "Click to enlarge",
       latestCommits: "Latest commits",
@@ -222,20 +238,24 @@ export const translations = {
       inactive: "Inactive project",
       moderate: "Moderate activity",
     },
+
     footer: {
       builtWith: "Built with",
     },
+
     githubArchive: {
       title: "Other GitHub Repositories",
       subtitle:
         "Smaller projects, experiments, training applications and archived repositories.",
       openRepository: "Open repository",
     },
+
     terminal: {
       whoami: "Junior Java Developer",
       status: "Actively developing full-stack projects and Java games.",
       focus: "Backend, React, REST APIs, databases and cybersecurity.",
     },
+
     commits: {
       loadError: "Error while loading commits.",
       rateLimit: "GitHub API rate limit has been exceeded.",
@@ -244,7 +264,8 @@ export const translations = {
       yesterday: "yesterday",
       daysAgo: "days ago",
     },
-        projects: {
+
+    projects: {
       dungeonCrawl: {
         name: "Dungeon Crawl",
         desc: "Java RPG game with AI, save system, and combat mechanics",
@@ -278,8 +299,5 @@ export const translations = {
         desc: "A full-stack service for collecting regional legends, myths and local stories.",
       },
     },
-    projectDetails: {
-        backToProjects: "Back to projects",
-      },
   },
 };

@@ -1,56 +1,30 @@
 import { useEffect, useState } from "react";
+import { buildInfo } from "../data/buildInfo";
 
 export default function SiteInfo() {
-  const [views, setViews] = useState(null);
-  const [error, setError] = useState(false);
-
-  const lastUpdate =
-    import.meta.env.VITE_LAST_UPDATE ||
-    new Date().toLocaleDateString("pl-PL");
+  const [visits, setVisits] = useState(0);
 
   useEffect(() => {
-    async function fetchViews() {
-      try {
-        const res = await fetch(
-          "https://api.counterapi.dev/v1/dkupracz-portfolio/homepage/up"
-        );
-
-        if (!res.ok) {
-          throw new Error("Counter API error");
-        }
-
-        const data = await res.json();
-
-        const value = data.count ?? data.value;
-
-        if (typeof value !== "number") {
-          throw new Error("Invalid counter response");
-        }
-
-        setViews(value);
-      } catch (err) {
-        console.error("Visitor counter error:", err);
-        setError(true);
-      }
-    }
-
-    fetchViews();
+    const currentVisits = Number(localStorage.getItem("visitCount") || 0) + 1;
+    localStorage.setItem("visitCount", String(currentVisits));
+    setVisits(currentVisits);
   }, []);
 
-  return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-zinc-400 mt-8">
-      <div className="flex items-center gap-2">
-        <span>◷</span>
-        <span>Ostatnia aktualizacja: {lastUpdate}</span>
-      </div>
+  const formattedDate = new Date(buildInfo.lastUpdated).toLocaleDateString(
+    "pl-PL",
+    {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    }
+  );
 
-      <div className="flex items-center gap-2">
-        <span>⊙</span>
-        <span>
-          Odwiedziny:{" "}
-          {error ? "niedostępne" : views !== null ? views : "..."}
-        </span>
-      </div>
-    </div>
+  return (
+    <section className="text-center text-sm text-gray-400 py-6">
+      <p>Ostatnia aktualizacja strony: {formattedDate}</p>
+      <p>Liczba Twoich odwiedzin: {visits}</p>
+    </section>
   );
 }

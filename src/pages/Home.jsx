@@ -102,7 +102,7 @@ export default function Home() {
           </h2>
 
           <h3 className="text-2xl font-semibold text-white">
-            {t("projects.dungeonCrawl.name")}
+            {t("projects.legends.name")}
           </h3>
 
           <p className="text-zinc-400 mt-4">
@@ -111,7 +111,7 @@ export default function Home() {
 
           <button
             type="button"
-            onClick={() => navigate("/projekty/1")}
+            onClick={() => navigate("/projekty/8")}
             className="mt-6 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
           >
             {t("home.detailsBtn")}
