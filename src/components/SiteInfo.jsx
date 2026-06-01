@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { buildInfo } from "../data/buildInfo";
 
 export default function SiteInfo() {
-  const [visits, setVisits] = useState(0);
+   const [visits] = useState(() => {
+    return Number(localStorage.getItem("visitCount") || "0") + 1;
+  });
 
   useEffect(() => {
-    const currentVisits = Number(localStorage.getItem("visitCount") || 0) + 1;
-    localStorage.setItem("visitCount", String(currentVisits));
-    setVisits(currentVisits);
-  }, []);
+    localStorage.setItem("visitCount", String(visits));
+  }, [visits]);
 
   const formattedDate = new Date(buildInfo.lastUpdated).toLocaleDateString(
     "pl-PL",

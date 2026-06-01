@@ -38,11 +38,12 @@ export const translations = {
         "Cyberbezpieczeństwo traktuję jako naturalne rozszerzenie wiedzy programistycznej — pozwala zrozumieć, jak systemy działają „od środka” i jak je skutecznie zabezpieczać.",
       currentlyTitle: "Aktualnie",
       currentlyItems: [
-        "Rozwijam grę RPG (Dungeon Crawl)",
-        "Tworzę system zapisu i odczytu stanu gry",
-        "Implementuję AI przeciwników",
-        "Rozwijam wiedzę z zakresu cyberbezpieczeństwa",
-      ],
+        "Rozwijam aplikację full-stack Legends",
+        "Implementuję CRUD dla legend, mitów i lokalnych opowieści",
+        "Tworzę backend w Java + Spring Boot oraz REST API",
+        "Buduję frontend w React + Tailwind CSS",
+        "Pracuję z MySQL, uploadem obrazów i filtrowaniem danych",
+          ],
       softSkillsTitle: "Soft skills",
       softSkills: [
         "Rozwiązywanie problemów",
@@ -189,10 +190,11 @@ export const translations = {
         "I see cybersecurity as a natural extension of programming knowledge — it helps me understand how systems work from the inside and how to secure them effectively.",
       currentlyTitle: "Currently",
       currentlyItems: [
-        "Developing an RPG game (Dungeon Crawl)",
-        "Building a save and load system for the game state",
-        "Implementing enemy AI",
-        "Expanding my knowledge of cybersecurity",
+        "I am developing the full-stack Legends application",
+        "I am implementing CRUD features for legends, myths and local stories",
+        "I am building the backend with Java, Spring Boot and REST API",
+        "I am creating the frontend with React and Tailwind CSS",
+        "I am working with MySQL, image upload and data filtering",
       ],
       softSkillsTitle: "Soft skills",
       softSkills: [

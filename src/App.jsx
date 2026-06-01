@@ -9,6 +9,7 @@ import MatrixRain from "./components/MatrixRain";
 import AnimeBackground from "./components/AnimeBackground";
 import GradientBackground from "./components/GradientBackground";
 import LanguageWrapper from "./components/LanguageWrapper";
+import ScrollToHash from "./components/ScrollToHash";
 
 export default function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ export default function App() {
       )}
 
       <Navbar />
+      <ScrollToHash />
       <LanguageWrapper>
       <Routes>
         <Route path="/" element={<Home />} />
