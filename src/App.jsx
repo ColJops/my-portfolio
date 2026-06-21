@@ -10,6 +10,7 @@ import AnimeBackground from "./components/AnimeBackground";
 import GradientBackground from "./components/GradientBackground";
 import LanguageWrapper from "./components/LanguageWrapper";
 import ScrollToHash from "./components/ScrollToHash";
+import { ROUTES } from "./config/routes";
 
 export default function App() {
   const location = useLocation();
@@ -19,14 +20,14 @@ export default function App() {
     <div className="min-h-screen text-white relative overflow-hidden">
 
       {/*  TŁO */}
-      {path === "/o-mnie" ? (
+      {path === ROUTES.about ? (
         <AnimeBackground />
       ) : (
         <GradientBackground />
       )}
 
       {/*  MATRIX tylko na Home */}
-      {path === "/" && (
+      {path === ROUTES.home && (
         <>
           <MatrixRain side="left" />
           <MatrixRain side="right" />
@@ -37,10 +38,10 @@ export default function App() {
       <ScrollToHash />
       <LanguageWrapper>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/o-mnie" element={<About />} />
-        <Route path="/projekty" element={<Projects />} />
-        <Route path="/projekty/:id" element={<ProjectDetails />} />
+        <Route path={ROUTES.home} element={<Home />} />
+        <Route path={ROUTES.about} element={<About />} />
+        <Route path={ROUTES.projects} element={<Projects />} />
+        <Route path={ROUTES.projectDetails} element={<ProjectDetails />} />
       </Routes>
       </LanguageWrapper>
       <Footer />

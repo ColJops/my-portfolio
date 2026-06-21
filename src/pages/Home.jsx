@@ -8,6 +8,7 @@ import prog2 from "../assets/gfx/prog2.jpg";
 import { useTranslations } from "../utils/translations";
 import SiteInfo from "../components/SiteInfo";
 import TerminalSection from "../components/TerminalSection";
+import { ROUTES, getProjectDetailsPath } from "../config/routes";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ export default function Home() {
             
             <button
               type="button"
-              onClick={() => navigate("/projekty")}
+              onClick={() => navigate(ROUTES.projects)}
               className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
               {t("home.projectsBtn")}
@@ -48,7 +49,7 @@ export default function Home() {
 
             <button
               type="button"
-              onClick={() => navigate("/o-mnie#kontakt")}
+              onClick={() => navigate(`${ROUTES.about}#kontakt`)}
               className="px-8 py-3 border border-zinc-700 rounded-lg hover:border-cyan-400 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
               {t("home.contactBtn")}
@@ -60,7 +61,7 @@ export default function Home() {
         <Reveal direction="right" delay={0.15}>
           <motion.img
             src={cyb4}
-            alt="cyber"
+            alt={t("home.heroImageAlt")}
             whileHover={{
               scale: 1.03,
               rotate: -0.5,
@@ -78,7 +79,8 @@ export default function Home() {
           <Reveal direction="right" delay={0.15}>
           <img
             src={prog6}
-            alt="programming"
+            alt={t("home.techImageAlt")}
+            loading="lazy"
             className="w-full max-w-md mx-auto lg:ml-auto rounded-xl border border-zinc-800 shadow-lg hover:scale-105 transition duration-500"
           />
           </Reveal>
@@ -90,7 +92,8 @@ export default function Home() {
       <Reveal direction="left">
         <img
           src={prog2}
-          alt="project"
+          alt={t("home.projectImageAlt")}
+          loading="lazy"
           className="w-full max-w-md mx-auto lg:mx-0 rounded-xl border border-zinc-800 shadow-lg hover:scale-105 transition duration-500"
         />
       </Reveal>
@@ -111,7 +114,7 @@ export default function Home() {
 
           <button
             type="button"
-            onClick={() => navigate("/projekty/8")}
+            onClick={() => navigate(getProjectDetailsPath(8))}
             className="mt-6 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
           >
             {t("home.detailsBtn")}

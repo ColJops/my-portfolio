@@ -1,8 +1,15 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { projects } from "../data/projects";
 import CommitList from "../components/CommitList";
 import { useTranslations } from "../utils/translations";
+import { ROUTES } from "../config/routes";
+
+const badgeStyles = {
+  green: "bg-green-500/10 text-green-400 border-green-500/20",
+  yellow: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+  red: "bg-red-500/10 text-red-400 border-red-500/20",
+};
 
 export default function ProjectDetails() {
   const { id } = useParams();
@@ -10,7 +17,7 @@ export default function ProjectDetails() {
   const project = projects.find((p) => p.id === Number(id));
   const [lastCommitDate, setLastCommitDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [badge, setBadge] = useState(null);
+  const [currentTime] = useState(() => Date.now());
 
   const projectName =
     project && project.translationKey
@@ -21,22 +28,10 @@ export default function ProjectDetails() {
       ? t(`projects.${project.translationKey}.desc`)
       : project?.desc || "";
 
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") setIsOpen(false);
-    };
+  const badge = useMemo(() => {
+    if (!lastCommitDate) return null;
 
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
-
-  useEffect(() => {
-    if (!lastCommitDate) {
-      setBadge(null); // eslint-disable-line react-hooks/set-state-in-effect
-      return;
-    }
-
-    const days = (Date.now() - new Date(lastCommitDate)) / (1000 * 60 * 60 * 24);
+    const days = (currentTime - new Date(lastCommitDate)) / (1000 * 60 * 60 * 24);
     let label = t("projectDetails.active");
     let color = "green";
 
@@ -48,38 +43,29 @@ export default function ProjectDetails() {
       color = "yellow";
     }
 
-    const styles = {
-      green: "bg-green-500/10 text-green-400 border-green-500/20",
-      yellow: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-      red: "bg-red-500/10 text-red-400 border-red-500/20",
+    return { label, styles: badgeStyles[color] };
+  }, [currentTime, lastCommitDate, t]);
+
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
     };
 
-    setBadge({ label, color, styles: styles[color] });
-  }, [lastCommitDate, t]);
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, []);
 
   if (!project) return <div>{t("projectDetails.notFound")}</div>;
 
   return (
     <section className="px-8 py-20 max-w-5xl mx-auto">
       <Link
-    to="/projekty"
-    className="
-      mb-8
-      inline-flex
-      items-center
-      gap-2
-      text-sm
-      text-cyan-400
-      transition
-      hover:text-cyan-300
-      focus:outline-none
-      focus:ring-2
-      focus:ring-cyan-400
-      rounded
-    "
-  >
-     ← {t("projectDetails.backToProjects")}
-  </Link>  
+        to={ROUTES.projects}
+        className="mb-8 inline-flex items-center gap-2 text-sm text-cyan-400 transition hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+      >
+        ← {t("projectDetails.backToProjects")}
+      </Link>
+
       <h1 className="text-4xl font-bold text-white">{projectName}</h1>
 
       <p className="text-zinc-400 mt-4">{projectDescription}</p>
@@ -100,9 +86,11 @@ export default function ProjectDetails() {
       )}
 
       {project.image && (
-        <div
+        <button
+          type="button"
           onClick={() => setIsOpen(true)}
-          className="mt-10 group relative rounded-xl overflow-hidden border border-zinc-800 cursor-pointer"
+          className="mt-10 block w-full group relative rounded-xl overflow-hidden border border-zinc-800 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          aria-label={`${t("projectDetails.preview")}: ${projectName}`}
         >
           <img
             src={project.image}
@@ -110,12 +98,12 @@ export default function ProjectDetails() {
             className="w-full object-cover transition duration-500 group-hover:scale-105"
           />
 
-          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+          <span className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition flex items-center justify-center">
             <span className="text-white text-lg font-medium">
               {t("projectDetails.preview")}
             </span>
-          </div>
-        </div>
+          </span>
+        </button>
       )}
 
       {project.github && (
@@ -133,16 +121,18 @@ export default function ProjectDetails() {
       )}
 
       {isOpen && (
-        <div
+        <button
+          type="button"
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50 cursor-zoom-out focus:outline-none"
+          aria-label={t("projectDetails.closePreview")}
         >
           <img
             src={project.image}
             alt={projectName}
             className="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl"
           />
-        </div>
+        </button>
       )}
     </section>
   );

@@ -1,4 +1,4 @@
-import animeBg from "../assets/gfx/animeback.jpg"; // ← podmień na swoją nazwę pliku
+import animeBg from "../assets/gfx/animeback.jpg"; 
 
 export default function AnimeBackground() {
   return (
