@@ -4,21 +4,19 @@ import {
   useEffect,
   useMemo,
   useState,
+  useCallback,
 } from "react";
+import { readStorage, writeStorage, supportedLanguage } from "../utils/storage";
 
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState(() => {
-    if (typeof window === "undefined") {
-      return "pl";
-    }
-
-    return localStorage.getItem("lang") || "pl";
-  });
+  const [lang, updateLang] = useState(() => supportedLanguage(readStorage("lang")));
+  const setLang = useCallback((value) => updateLang(supportedLanguage(value)), []);
 
   useEffect(() => {
-    localStorage.setItem("lang", lang);
+    writeStorage("lang", lang);
+    document.documentElement.lang = lang;
   }, [lang]);
 
   const value = useMemo(
@@ -26,7 +24,7 @@ export function LanguageProvider({ children }) {
       lang,
       setLang,
     }),
-    [lang]
+    [lang, setLang]
   );
 
   return (

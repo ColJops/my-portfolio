@@ -1,6 +1,8 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import Updates from "./pages/Updates";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import ProjectDetails from "./pages/ProjectDetails";
@@ -42,6 +44,8 @@ export default function App() {
         <Route path={ROUTES.about} element={<About />} />
         <Route path={ROUTES.projects} element={<Projects />} />
         <Route path={ROUTES.projectDetails} element={<ProjectDetails />} />
+        <Route path={ROUTES.updates} element={<Updates />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </LanguageWrapper>
       <Footer />

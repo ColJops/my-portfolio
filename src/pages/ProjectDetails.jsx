@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import NotFound from "./NotFound";
 import { projects } from "../data/projects";
 import CommitList from "../components/CommitList";
 import { useTranslations } from "../utils/translations";
@@ -16,7 +17,8 @@ export default function ProjectDetails() {
   const t = useTranslations();
   const project = projects.find((p) => p.id === Number(id));
   const [lastCommitDate, setLastCommitDate] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const dialogRef = useRef(null);
+  const previewRef = useRef(null);
   const [currentTime] = useState(() => Date.now());
 
   const projectName =
@@ -46,16 +48,7 @@ export default function ProjectDetails() {
     return { label, styles: badgeStyles[color] };
   }, [currentTime, lastCommitDate, t]);
 
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") setIsOpen(false);
-    };
-
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
-
-  if (!project) return <div>{t("projectDetails.notFound")}</div>;
+  if (!project) return <NotFound project />;
 
   return (
     <section className="px-8 py-20 max-w-5xl mx-auto">
@@ -88,7 +81,8 @@ export default function ProjectDetails() {
       {project.image && (
         <button
           type="button"
-          onClick={() => setIsOpen(true)}
+          ref={previewRef}
+          onClick={() => dialogRef.current.showModal()}
           className="mt-10 block w-full group relative rounded-xl overflow-hidden border border-zinc-800 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
           aria-label={`${t("projectDetails.preview")}: ${projectName}`}
         >
@@ -120,19 +114,24 @@ export default function ProjectDetails() {
         </div>
       )}
 
-      {isOpen && (
-        <button
-          type="button"
-          onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black/80 backdrop-blur flex items-center justify-center z-50 cursor-zoom-out focus:outline-none"
-          aria-label={t("projectDetails.closePreview")}
+      {project.image && (
+        <dialog
+          ref={dialogRef}
+          onClose={() => previewRef.current?.focus()}
+          className="fixed inset-0 m-auto max-w-[95vw] max-h-[95vh] p-4 rounded-xl bg-zinc-950 text-white backdrop:bg-black/80 backdrop:backdrop-blur"
+          aria-label={projectName}
         >
+          <form method="dialog" className="flex justify-end mb-3">
+            <button autoFocus className="px-4 py-2 rounded border border-cyan-400 focus:ring-2 focus:ring-cyan-400">
+              {t("projectDetails.closePreview")}
+            </button>
+          </form>
           <img
             src={project.image}
             alt={projectName}
-            className="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl"
+            className="max-w-full max-h-[75vh] rounded-xl shadow-2xl"
           />
-        </button>
+        </dialog>
       )}
     </section>
   );

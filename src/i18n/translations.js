@@ -1,5 +1,13 @@
 export const translations = {
   pl: {
+    updatesPage: {
+      title: "Historia aktualizacji",
+      description: "Nowe funkcje i poprawki, dzięki którym portfolio staje się wygodniejsze w użyciu.",
+      latest: "Najnowsza aktualizacja",
+      backHome: "Powrót na stronę główną",
+    },
+    siteInfo: { lastUpdated: "Ostatnia aktualizacja strony", visits: "Liczba Twoich wejść na stronę" },
+    notFound: { title: "Nie znaleziono strony", backHome: "Powrót na stronę główną" },
     nav: {
       home: "Start",
       about: "O mnie",
@@ -8,6 +16,9 @@ export const translations = {
 
     home: {
       title: "Tworzę nowoczesne aplikacje",
+      heroImageAlt: "Ilustracja technologii i cyberbezpieczeństwa",
+      techImageAlt: "Ilustracja programowania",
+      projectImageAlt: "Ilustracja pracy nad projektem",
       techLine: {
         react: "React",
         java: "Java",
@@ -80,6 +91,7 @@ export const translations = {
 
     projectDetails: {
       notFound: "Nie znaleziono projektu",
+      closePreview: "Zamknij podgląd",
       backToProjects: "Powrót do projektów",
       repository: "Zobacz repo →",
       preview: "Kliknij, aby powiększyć",
@@ -152,6 +164,14 @@ export const translations = {
   },
 
   en: {
+    updatesPage: {
+      title: "Update history",
+      description: "New features and improvements that make this portfolio easier to use.",
+      latest: "Latest update",
+      backHome: "Back to home",
+    },
+    siteInfo: { lastUpdated: "Site last updated", visits: "Your page visits" },
+    notFound: { title: "Page not found", backHome: "Back to home" },
     nav: {
       home: "Home",
       about: "About",
@@ -160,6 +180,9 @@ export const translations = {
 
     home: {
       title: "I build modern applications",
+      heroImageAlt: "Technology and cybersecurity illustration",
+      techImageAlt: "Programming illustration",
+      projectImageAlt: "Project development illustration",
       techLine: {
         react: "React",
         java: "Java",
@@ -232,6 +255,7 @@ export const translations = {
 
     projectDetails: {
       notFound: "Project not found",
+      closePreview: "Close preview",
       backToProjects: "Back to projects",
       repository: "View repository →",
       preview: "Click to enlarge",

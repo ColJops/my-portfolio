@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../config/routes";
 import reactLogo from "../assets/logo/react.svg";
 import viteLogo from "../assets/logo/vite.svg";
 import { useTranslations } from "../utils/translations";
@@ -21,6 +23,13 @@ export default function Footer() {
         <div className="text-zinc-400 text-sm">
           {time.toLocaleDateString()} • {time.toLocaleTimeString()} © {new Date().getFullYear()} Daniel Kupracz
         </div>
+
+        <Link
+          to={ROUTES.updates}
+          className="text-sm text-cyan-400 underline underline-offset-4 hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
+        >
+          {t("updatesPage.title")}
+        </Link>
 
         <div className="flex items-center gap-4">
           <span className="text-zinc-300 text-sm">

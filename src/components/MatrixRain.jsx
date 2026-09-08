@@ -6,18 +6,17 @@ export default function MatrixRain({ side = "left" }) {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     let w = canvas.width = canvas.offsetWidth;
     let h = canvas.height = canvas.offsetHeight;
 
     const fontSize = 16;
-    const columns = Math.floor(w / fontSize);
-
-    const drops = Array(columns).fill(1);
+    let drops = [];
 
     const chars = "01アイウエオカキクケコサシスセソABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    let raf;
+    let raf = null;
     let frame = 0;
 
     const draw = () => {
@@ -53,18 +52,27 @@ export default function MatrixRain({ side = "left" }) {
       raf = requestAnimationFrame(draw);
     };
 
-    draw();
-
     const onResize = () => {
+      if (raf !== null) cancelAnimationFrame(raf);
+      raf = null;
       w = canvas.width = canvas.offsetWidth;
       h = canvas.height = canvas.offsetHeight;
+      drops = Array(Math.ceil(w / fontSize)).fill(1);
+      frame = 0;
+      if (w > 0 && h > 0 && !document.hidden) {
+        raf = requestAnimationFrame(draw);
+      }
     };
 
-    window.addEventListener("resize", onResize);
+    const observer = new ResizeObserver(onResize);
+    observer.observe(canvas);
+    document.addEventListener("visibilitychange", onResize);
+    onResize();
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener("resize", onResize);
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", onResize);
     };
   }, []);
 
