@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-build-info.cjs && vite build",
+    "build": "vite build",
     "lint": "eslint .",
+    "test": "node --test scripts/review-regressions.test.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

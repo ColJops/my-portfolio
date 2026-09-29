@@ -2,6 +2,7 @@ export const ROUTES = {
   home: "/",
   about: "/o-mnie",
   projects: "/projekty",
+  updates: "/aktualizacje",
   projectDetails: "/projekty/:id",
 };
 
