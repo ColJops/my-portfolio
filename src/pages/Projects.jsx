@@ -1,6 +1,6 @@
 import AnimatedProjectGrid from "../components/AnimatedProjectGrid";
 import GithubArchive from "../components/GithubArchive";
-import { projects } from "../data/projects";
+import { projects, projectStatusOrder } from "../data/projects";
 import cyb3 from "../assets/gfx/cyb3.jpg";
 import { useTranslations } from "../utils/translations";
 
@@ -25,10 +25,24 @@ export default function Projects() {
         </h2>
       </div>
 
-      <AnimatedProjectGrid
-        projects={mainProjects}
-        delayMultiplier={0.12}
-      />
+      <div className="space-y-12">
+        {projectStatusOrder.map((status) => {
+          const statusProjects = mainProjects.filter((project) => project.status === status);
+          if (statusProjects.length === 0) return null;
+
+          return (
+            <section key={status} aria-labelledby={`project-status-${status}`}>
+              <h3
+                id={`project-status-${status}`}
+                className="text-2xl font-semibold mb-6 text-zinc-400"
+              >
+                {t(`projectStatuses.${status}`)}
+              </h3>
+              <AnimatedProjectGrid projects={statusProjects} delayMultiplier={0.12} />
+            </section>
+          );
+        })}
+      </div>
 
       <div className="my-16 border-t border-zinc-800" />
 

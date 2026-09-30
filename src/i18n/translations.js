@@ -70,6 +70,8 @@ export const translations = {
 
     techStack: {
       title: "Tech Stack",
+      aiLiteracy: "AI Literacy",
+      aiLiteracyDescription: "Wykorzystuję AI do wspomagania programowania i tworzenia grafik.",
       categories: {
         frontend: "Frontend",
         backend: "Backend",
@@ -82,6 +84,11 @@ export const translations = {
       title: "Moje projekty",
       courseTitle: "Projekty z kursu Full Stack Web Developer",
       imageAlt: "cyber",
+    },
+    projectStatuses: {
+      completed: "Projekt zakończony",
+      updating: "Aktualizowany",
+      development: "W trakcie tworzenia",
     },
 
     projectCard: {
@@ -160,6 +167,14 @@ export const translations = {
         name: "Legends",
         desc: "Serwis full-stack do zbierania legend, mitów i lokalnych historii z regionu.",
       },
+      fleets: {
+        name: "Fleets",
+        desc: "Moja pierwsza gra stworzona w Unity — strategiczna rozgrywka o dowodzeniu flotą statków i podejmowaniu decyzji na morzu.",
+      },
+      cybersecurity: {
+        name: "Cyberbezpieczeństwo",
+        desc: "Poznaję zasady ochrony systemów i danych, analizuję zagrożenia oraz uczę się tworzyć bezpieczniejsze aplikacje.",
+      },
     },
   },
 
@@ -234,6 +249,8 @@ export const translations = {
 
     techStack: {
       title: "Tech Stack",
+      aiLiteracy: "AI Literacy",
+      aiLiteracyDescription: "I use AI to support programming and create graphics.",
       categories: {
         frontend: "Frontend",
         backend: "Backend",
@@ -246,6 +263,11 @@ export const translations = {
       title: "My projects",
       courseTitle: "Full Stack Web Developer course projects",
       imageAlt: "cyber",
+    },
+    projectStatuses: {
+      completed: "Project completed",
+      updating: "Actively updated",
+      development: "In development",
     },
 
     projectCard: {
@@ -323,6 +345,14 @@ export const translations = {
       legends: {
         name: "Legends",
         desc: "A full-stack service for collecting regional legends, myths and local stories.",
+      },
+      fleets: {
+        name: "Fleets",
+        desc: "My first game made with Unity: a strategy game about commanding a fleet of ships and making decisions at sea.",
+      },
+      cybersecurity: {
+        name: "Cybersecurity",
+        desc: "I am learning how to protect systems and data, analyze threats, and build more secure applications.",
       },
     },
   },

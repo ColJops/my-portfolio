@@ -16,6 +16,7 @@ import {
   SiDjango,
   SiPostgresql,
   SiJira,
+  SiOpenai,
 } from "react-icons/si";
 
 import { DiPython } from "react-icons/di";
@@ -44,6 +45,7 @@ const tech = {
     { name: "Git", icon: <FaGitAlt />, color: "text-orange-400" },
     { name: "Jira", icon: <SiJira />, color: "text-blue-300" },
     { name: "Mockito", icon: "🧪", color: "text-pink-400" },
+    { nameKey: "techStack.aiLiteracy", detailKey: "techStack.aiLiteracyDescription", icon: <SiOpenai />, color: "text-emerald-400" },
   ],
 };
 
@@ -64,14 +66,21 @@ export default function TechStack() {
             </h3>
 
             <div className="flex flex-wrap gap-4">
-              {items.map((item) => (
+                {items.map((item) => (
                 <motion.div
                   key={item.name}
                   whileHover={{ scale: 1.1 }}
                   className="flex items-center gap-3 px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10 transition cursor-default"
                 >
                   <span className={`text-xl ${item.color}`}>{item.icon}</span>
-                  <span className="text-zinc-200">{item.name}</span>
+                    <div className="flex flex-col">
+                      <span className="text-zinc-200">{item.nameKey ? t(item.nameKey) : item.name}</span>
+                      {item.detailKey && (
+                        <span className="max-w-56 text-xs leading-relaxed text-zinc-400">
+                          {t(item.detailKey)}
+                        </span>
+                      )}
+                    </div>
                 </motion.div>
               ))}
             </div>

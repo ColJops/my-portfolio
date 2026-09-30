@@ -61,16 +61,18 @@ export default function ProjectDetails() {
 
       <h1 className="text-4xl font-bold text-white">{projectName}</h1>
 
-      <p className="text-zinc-400 mt-4">{projectDescription}</p>
+      {projectDescription && <p className="text-zinc-400 mt-4">{projectDescription}</p>}
 
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-6 text-cyan-400"
-      >
-        {t("projectDetails.repository")}
-      </a>
+      {project.link && (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block mt-6 text-cyan-400"
+        >
+          {t("projectDetails.repository")}
+        </a>
+      )}
 
       {badge && (
         <div className={`mt-4 inline-block px-3 py-1 text-sm rounded-full border ${badge.styles}`}>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../config/routes";
 import reactLogo from "../assets/logo/react.svg";
-import viteLogo from "../assets/logo/vite.svg";
+import { SiOpenai, SiTailwindcss } from "react-icons/si";
 import { useTranslations } from "../utils/translations";
 
 export default function Footer() {
@@ -36,8 +36,9 @@ export default function Footer() {
             {t("footer.builtWith")} <span className="text-cyan-400">❤</span>
           </span>
 
-          <img src={reactLogo} alt="React" className="w-6 h-6 hover:scale-110 transition" />
-          <img src={viteLogo} alt="Vite" className="w-6 h-6 hover:scale-110 transition" />
+          <img src={reactLogo} alt="React" title="React" className="w-6 h-6 hover:scale-110 transition" />
+          <SiTailwindcss aria-label="Tailwind CSS" title="Tailwind CSS" className="w-6 h-6 text-sky-400 hover:scale-110 transition" />
+          <SiOpenai aria-label="ChatGPT" title="ChatGPT" className="w-6 h-6 text-zinc-200 hover:scale-110 transition" />
         </div>
       </div>
     </footer>

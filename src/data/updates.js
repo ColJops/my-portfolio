@@ -1,5 +1,29 @@
 const entries = [
   {
+    id: "2026-09-30-projects-and-ai-literacy",
+    date: "2026-09-30",
+    pl: {
+      title: "Rozbudowa sekcji projektów i umiejętności",
+      changes: [
+        "Pogrupowano projekty według statusu: w trakcie tworzenia, aktualizowane i zakończone.",
+        "Dodano projekty Fleets i Cyberbezpieczeństwo wraz z opisami, ilustracjami oraz linkami do repozytoriów.",
+        "Na stronach obu projektów dodano historię ostatnich commitów z GitHub.",
+        "Dodano umiejętność AI Literacy — wykorzystanie AI do wspomagania programowania i tworzenia grafik.",
+        "Uzupełniono stopkę o ikony React, Tailwind CSS i ChatGPT.",
+      ],
+    },
+    en: {
+      title: "Expanded projects and skills",
+      changes: [
+        "Grouped projects by status: in development, actively updated and completed.",
+        "Added the Fleets and Cybersecurity projects with descriptions, illustrations and repository links.",
+        "Added recent GitHub commit history to both project pages.",
+        "Added AI Literacy, covering the use of AI to support programming and create graphics.",
+        "Updated the footer with React, Tailwind CSS and ChatGPT icons.",
+      ],
+    },
+  },
+  {
     id: "2026-09-08-history-and-fixes",
     date: "2026-09-08",
     pl: {

@@ -1,6 +1,10 @@
 import dungeonImg from "../assets/projects/dungeoncrawl.png";
 import portfolioImg from "../assets/projects/portfolio.webp";
 import legendImage from "../assets/projects/legends.png";
+import fleetsImage from "../assets/projects/fleets.png";
+import cybersecurityImage from "../assets/projects/cybersecurity.png";
+
+export const projectStatusOrder = ["development", "updating", "completed"];
 
 export const projects = [
   {
@@ -8,6 +12,7 @@ export const projects = [
     translationKey: "dungeonCrawl",
     name: "Dungeon Crawl",
     desc: "Gra RPG w Javie z AI, zapisem i systemem walki",
+    status: "completed",
     link: "https://github.com/ColJops/DemoEngine",
     tech: ["Java", "JavaFX", "AI"],
     featured: true,
@@ -22,6 +27,7 @@ export const projects = [
     translationKey: "portfolio",
     name: "Portfolio",
     desc: "Nowoczesna strona React + Tailwind",
+    status: "updating",
     link: "https://github.com/ColJops/my-portfolio",
     tech: ["React", "Tailwind CSS"],
     featured: true,
@@ -101,6 +107,7 @@ export const projects = [
   translationKey: "legends",
   name: "Legends",
   desc: "Serwis do zbierania legend, mitów i plotek regionalnych",
+  status: "development",
   link: "https://github.com/ColJops/legends",
   tech: [
     "Java 24+",
@@ -115,6 +122,34 @@ export const projects = [
   github: {
     owner: "ColJops",
     repo: "legends",
+  },
+},
+{
+  id: 9,
+  translationKey: "fleets",
+  name: "Fleets",
+  desc: "Moja pierwsza gra stworzona w Unity — strategiczna rozgrywka o dowodzeniu flotą statków i podejmowaniu decyzji na morzu.",
+  link: "https://github.com/ColJops/Fleets",
+  tech: ["Unity"],
+  status: "development",
+  image: fleetsImage,
+  github: {
+    owner: "ColJops",
+    repo: "Fleets",
+  },
+},
+{
+  id: 10,
+  translationKey: "cybersecurity",
+  name: "Cyberbezpieczeństwo",
+  desc: "Poznaję zasady ochrony systemów i danych, analizuję zagrożenia oraz uczę się tworzyć bezpieczniejsze aplikacje.",
+  link: "https://github.com/ColJops/cybersecurity",
+  tech: ["Cybersecurity"],
+  status: "development",
+  image: cybersecurityImage,
+  github: {
+    owner: "ColJops",
+    repo: "cybersecurity",
   },
 }
 ];

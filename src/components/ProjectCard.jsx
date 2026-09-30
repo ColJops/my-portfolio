@@ -110,9 +110,7 @@ export default function ProjectCard({ project }) {
           )}
         </div>
 
-        <p className="text-zinc-400 leading-relaxed">
-          {desc}
-        </p>
+        {desc && <p className="text-zinc-400 leading-relaxed">{desc}</p>}
 
         {project.tech?.length > 0 && (
           <div className="mt-5 flex flex-wrap gap-2">
