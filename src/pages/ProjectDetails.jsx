@@ -17,6 +17,10 @@ export default function ProjectDetails() {
   const t = useTranslations();
   const project = projects.find((p) => p.id === Number(id));
   const [lastCommitDate, setLastCommitDate] = useState(null);
+  
+  useMemo(() => {
+    setLastCommitDate(null);
+  }, [id]);
   const dialogRef = useRef(null);
   const previewRef = useRef(null);
   const [currentTime] = useState(() => Date.now());

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import TechStack from "../components/TechStack";
 import Reveal from "../components/Reveal";
 import cyb4 from "../assets/gfx/cyb4.jpg";
@@ -39,21 +39,19 @@ export default function Home() {
           <SiteInfo />
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             
-            <button
-              type="button"
-              onClick={() => navigate(ROUTES.projects)}
-              className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            <Link
+              to={ROUTES.projects}
+              className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-cyan-400 font-semibold"
             >
               {t("home.projectsBtn")}
-            </button>
+            </Link>
 
-            <button
-              type="button"
-              onClick={() => navigate(`${ROUTES.about}#kontakt`)}
-              className="px-8 py-3 border border-zinc-700 rounded-lg hover:border-cyan-400 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            <Link
+              to={`${ROUTES.about}#kontakt`}
+              className="inline-flex items-center justify-center px-8 py-3 border border-zinc-700 rounded-lg hover:border-cyan-400 transition focus:outline-none focus:ring-2 focus:ring-cyan-400 font-semibold"
             >
               {t("home.contactBtn")}
-            </button>
+            </Link>
           </div>
         </div>
         </Reveal>
@@ -112,13 +110,12 @@ export default function Home() {
             {t("home.currentProjectDescription")}
           </p>
 
-          <button
-            type="button"
-            onClick={() => navigate(getProjectDetailsPath(8))}
-            className="mt-6 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          <Link
+            to={getProjectDetailsPath(8)}
+            className="mt-6 inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-cyan-400 font-semibold"
           >
             {t("home.detailsBtn")}
-          </button>
+          </Link>
         </div>
       </Reveal>
     </section>

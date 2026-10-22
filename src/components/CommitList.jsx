@@ -22,19 +22,22 @@ function getCommitTimeText(dateString, t) {
   const now = new Date();
   const date = new Date(dateString);
 
-  const diff = Math.floor(
-    (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24)
-  );
+  // Tworzymy obiekty dat z wyzerowaną godziną, aby porównywać dni kalendarzowe
+  const nowDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const commitDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
-  if (diff === 0) {
+  const diffTime = nowDate.getTime() - commitDate.getTime();
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) {
     return t("commits.today");
   }
 
-  if (diff === 1) {
+  if (diffDays === 1) {
     return t("commits.yesterday");
   }
 
-  return `${diff} ${t("commits.daysAgo")}`;
+  return `${diffDays} ${t("commits.daysAgo")}`;
 }
 
 export default function CommitList({ owner, repo, onLatestCommit }) {

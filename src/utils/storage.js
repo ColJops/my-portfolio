@@ -17,10 +17,3 @@ export function writeStorage(key, value) {
 export function supportedLanguage(value) {
   return value === "en" ? "en" : "pl";
 }
-
-export function nextVisitCount(value) {
-  const count = Number(value);
-  return Number.isSafeInteger(count) && count >= 0 && count < Number.MAX_SAFE_INTEGER
-    ? count + 1
-    : 1;
-}

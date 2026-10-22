@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import { updates, formatUpdateDate } from "../data/updates";
 import { ROUTES } from "../config/routes";
-import { visits } from "../utils/visits";
+import { useVisits } from "../utils/visits";
 import { useLang } from "../context/LanguageContext";
 import { useTranslations } from "../utils/translations";
 
 export default function SiteInfo() {
   const { lang } = useLang();
   const t = useTranslations();
+  const visits = useVisits();
 
   const latestUpdate = updates[0];
 
@@ -25,7 +26,9 @@ export default function SiteInfo() {
       >
         {t("updatesPage.title")}
       </Link>
-      <p>{t("siteInfo.visits")}: {visits}</p>
+      <p>
+        {t("siteInfo.visits")}: {visits !== null ? visits : "..."}
+      </p>
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { getProjectDetailsPath } from "../config/routes";
 import { useTranslations } from "../utils/translations";
 
 function GitHubIcon() {
@@ -136,7 +137,7 @@ export default function ProjectCard({ project }) {
         )}
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <Link
-            to={`/projekty/${project.id}`}
+            to={getProjectDetailsPath(project.id)}
             className="
               inline-flex
               items-center

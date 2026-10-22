@@ -68,8 +68,8 @@ export default function TechStack() {
             <div className="flex flex-wrap gap-4">
                 {items.map((item) => (
                 <motion.div
-                  key={item.name}
-                  whileHover={{ scale: 1.1 }}
+                 key={item.name ?? item.nameKey}
+                 whileHover={{ scale: 1.1 }}
                   className="flex items-center gap-3 px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10 transition cursor-default"
                 >
                   <span className={`text-xl ${item.color}`}>{item.icon}</span>

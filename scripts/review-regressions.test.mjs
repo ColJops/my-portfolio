@@ -49,7 +49,7 @@ test("storage access and writes may throw without breaking state; visits count o
     const window = { get localStorage() { if (mode === "access") throw Error("SecurityError"); return storage; } };
     const context = vm.createContext({ window });
     vm.runInContext(source("src/utils/storage.js").replaceAll("export ", ""), context);
-    vm.runInContext(source("src/utils/visits.js").replace(/^import .*;\n/, "").replace("export ", ""), context);
+    vm.runInContext(source("src/utils/visits.js").replace(/^import .*;\r?\n/, "").replace("export ", ""), context);
     assert.equal(vm.runInContext("visits", context), ["read", "access"].includes(mode) ? 1 : 5);
     for (let i = 0; i < 3; i++) vm.runInContext("visits", context);
     assert.equal(writes, mode === "access" ? 0 : 1);

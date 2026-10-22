@@ -1,5 +1,31 @@
 const entries = [
   {
+    id: "2026-10-22-persistent-counter-and-optimization",
+    date: "2026-10-22",
+    pl: {
+      title: "Trwały licznik odwiedzin, dostępność i optymalizacja kodu",
+      changes: [
+        "Zintegrowano zewnętrzny licznik odwiedzin z pamięcią zapasową, dzięki czemu liczba wizyt nie resetuje się po aktualizacji strony.",
+        "Usprawniono nawigację i dostępność (a11y): zamieniono przyciski nawigacyjne na semantyczne linki, uporządkowano hierarchię nagłówków oraz uzupełniono opisy alternatywne i etykiety ARIA.",
+        "Dodano możliwość zamykania podglądu ilustracji projektu po kliknięciu w przyciemnione tło wokół obrazu.",
+        "Poprawiono obliczanie dni kalendarzowych dla historii commitów z GitHub oraz odświeżanie statusu aktywności przy przełączaniu projektów.",
+        "Zoptymalizowano wydajność zegara w stopce i dopasowano formatowanie daty oraz czasu do wybranego języka (PL/EN).",
+        "Uporządkowano kod źródłowy, ujednolicono ścieżki routingu i usunięto nieużywane zasoby.",
+      ],
+    },
+    en: {
+      title: "Persistent visit counter, accessibility and code optimization",
+      changes: [
+        "Integrated an external visit counter with local fallback so the visit count no longer resets after site updates.",
+        "Improved navigation and accessibility (a11y): replaced navigation buttons with semantic links, refined heading hierarchy, and updated alt texts and ARIA labels.",
+        "Added support for closing project image previews by clicking the dimmed backdrop.",
+        "Fixed calendar-day calculation for GitHub commit history and activity badge state resets when switching between projects.",
+        "Optimized the footer clock performance and aligned date and time formatting with the selected language (PL/EN).",
+        "Cleaned up the codebase, unified route constants, and removed unused assets.",
+      ],
+    },
+  },
+  {
     id: "2026-09-30-projects-and-ai-literacy",
     date: "2026-09-30",
     pl: {

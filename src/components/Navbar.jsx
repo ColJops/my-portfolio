@@ -28,8 +28,8 @@ export default function Navbar() {
   return (
     <nav className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center px-4 md:px-8 py-5 bg-zinc-900/80 backdrop-blur border-b border-zinc-800 sticky top-0 z-50">
       <Link
-        to="/"
-        aria-label="Homepage"
+        to={ROUTES.home}
+        aria-label={t("nav.home")}
         className="text-2xl font-bold tracking-wide text-center md:text-left focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded"
       >
         <span className="text-cyan-400">Daniel Kupracz </span>
@@ -39,7 +39,7 @@ export default function Navbar() {
       <div className="flex items-center gap-3 md:ml-6">
         <button
           type="button"
-          aria-label="Zmień język na polski"
+          aria-label={lang === "pl" ? "Język polski (wybrany)" : "Zmień język na polski"}
           aria-pressed={lang === "pl"}
           onClick={() => setLang("pl")}
           className={`p-1 rounded-md transition transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-cyan-400 ${
@@ -51,7 +51,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          aria-label="Change language to English"
+          aria-label={lang === "en" ? "English language (selected)" : "Change language to English"}
           aria-pressed={lang === "en"}
           onClick={() => setLang("en")}
           className={`p-1 rounded-md transition transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-cyan-400 ${
